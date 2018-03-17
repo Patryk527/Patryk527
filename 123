@@ -1,0 +1,81 @@
+# Patryk527.github.io/*
+body{
+	background-color: #DD1060;	
+}
+*/
+#test{
+	max-width: 60%;
+	text-align: justify;
+
+}
+.formularz{
+	background-color: azure;
+}
+h3:hover{
+	color: #DD1060;
+	font-style: italic;
+}
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+	<title>NoraPatrykola3</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
+	<!-- <script src="script.js" type="text/javascript"></script> -->
+	
+</head>
+<body>
+	<header>
+		<h1>Gitara siema</h1>
+	</header>
+	<nav>
+		<ul>
+				<li><a href="">LINK 1</a></li>
+				<li><a href="">LINK 2</a></li>
+				<li><a href="">LINK 3</a></li>
+				<li><a href="">LINK 4</a></li>
+		</ul>
+	</nav>
+	<main>
+		<div id="test">
+			<p>
+			Bacon ipsum dolor amet tongue id short loin sirloin sed reprehenderit rump in brisket drumstick cow enim in. Voluptate reprehenderit commodo eiusmod capicola venison non jowl boudin strip steak ea. Turkey ea brisket consequat, officia landjaeger pastrami ut pig. Magna do filet mignon, ex cupidatat ut nisi chicken ham chuck tenderloin andouille pariatur bacon veniam.
+			</p>
+		</div>
+		<div class="formularz">
+			<form>
+				<h3>TWOJE IMIĘ:</h3>
+				<input type="text" name="imie" value="domyślna ksywa"></br>
+				<h3>TWOJA PŁEĆ:</h3>
+				<input type="radio" name="plec" value="M">Stary</br>
+				
+				<input type="radio" name="plec" value="K">Stara</br>
+				
+				<h3>WZROST:</h3>
+				<input type="range" name="" min="100" max="250">
+				<hr>
+				<input type="submit" name="">
+				<button>STWÓRZ</button>
+			</form>
+		</div>
+	</main>
+
+</body>
+</html>
+$(document).ready(function() 
+{
+	// SECTION GENERATES BACON IPSUM PARAGRAPHS IN DIV #TEST WITH BACONIPSUM API
+		$.getJSON('https://baconipsum.com/api/?callback=?', 
+			{ 'type':'meat-and-filler', 'start-with-lorem':'1', 'paras':'10' }, function(baconGoodness){
+			if (baconGoodness && baconGoodness.length > 0)
+			{
+				$("#test").html('');
+				for (var i = 0; i < baconGoodness.length; i++)
+					$("#test").append('<p>' + baconGoodness[i] + '</p>');
+				$("#test").show();
+			}
+		});
+
+
+});
